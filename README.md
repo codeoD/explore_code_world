@@ -2,6 +2,9 @@
 
 > All the question, all the explore!
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![License: GPL3.0](https://img.shields.io/badge/License-GPL3.0-brightgreen.svg)](https://opensource.org/licenses/GPL-3.0)
+
 ## Build Setup
 
 ``` bash
