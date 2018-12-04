@@ -15,11 +15,11 @@ export default {
 </script>
 <style lang="scss">
 .side-bar {
-  width: 8rem;
+  width: 12rem;
   height: calc(100vh - 5rem);
 }
 ul {
-  padding-left: 1rem;
+  padding-left: 3rem;
   list-style-type: none;
 }
 </style>
