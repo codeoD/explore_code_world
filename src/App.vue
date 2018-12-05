@@ -3,7 +3,9 @@
     <!-- <img src="./assets/logo.png"> -->
     <top-bar></top-bar>
     <side-bar></side-bar>
-    <router-view class="main-content inline-block fixed"/>
+    <div class="main-content inline-block fixed bg-teal-lightest">
+      <router-view class="main-content-view"/>
+    </div>
   </div>
 </template>
 
@@ -32,6 +34,26 @@ export default {
   margin-top: 60px;
 } */
 .main-content {
-  width: calc(100vw - 8rem);
+  width: calc(100vw - 12rem);
+  height: calc(100vh - 5rem);
+  overflow-y: auto;
+}
+.main-content-view {
+  position: relative;
+  padding: 1rem;
+}
+.main-content-view::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('./assets/img/magic_girl.jpg'); */
+  /* background-clip: padding-box; */
+  background-size: cover;
+  background-position: bottom;
+  z-index: -1;
+  filter: opacity(0.4);
 }
 </style>
