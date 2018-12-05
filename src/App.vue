@@ -49,10 +49,11 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  /* background-image: url('./assets/img/magic_girl.jpg'); */
+  background-image: url('./assets/img/magic_girl.jpg');
   /* background-clip: padding-box; */
   background-size: cover;
-  background-position: bottom;
+  /* background-position: bottom; */
+  background-attachment: fixed;
   z-index: -1;
   filter: opacity(0.4);
 }

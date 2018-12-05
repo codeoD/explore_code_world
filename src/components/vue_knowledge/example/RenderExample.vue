@@ -32,7 +32,7 @@ export default {
         'content from RenderExample',
         h('h3', {
           slot: 'my-slot'
-        }, 'Hi, good boy!')
+        }, 'some other info~')
       ]
       )
     }

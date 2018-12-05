@@ -1,8 +1,8 @@
 <template>
   <div>
-    <p>来自父组件的props: {{ info }}</p>
-    <slot></slot>
-    <slot name="my-slot"></slot>
+    <p class="mt-2 mb-2">来自父组件的props: {{ info }}</p>
+    <div class="mt-2 mb-2"><slot></slot></div>
+    <slot class="mt-2 mb-2" name="my-slot"></slot>
   </div>
 </template>
 <script>

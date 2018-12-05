@@ -1,23 +1,29 @@
 <template>
   <div>
-    <h3>组件相关</h3>
+    <h3 class="mt-4 mb-4">组件相关</h3>
     <div class="mt-4">
       <div>
         <!-- <dir></dir> -->
-        <pre class="bg-pink-lightest rounded">// 使用v-model双向绑定数据，并使用上文自定义的全局指令聚焦输入框</pre>
-        <label for="">姓名：</label>
+        <!-- 使用v-model双向绑定数据，并使用上文自定义的全局指令聚焦输入框 -->
         <!-- 单纯就聚焦来说，也可以使用html内置特性 autofocus -->
-        <input id="name" type="text" v-model="person.name" v-focus autocomplete="off">
-        <span class="ml-8">年龄：{{ person.age }}</span>
-        <span class="ml-8">地址：{{ person.address }}</span>
-        <pre class="bg-pink-lightest rounded">// 使用上文自定义的全局过滤器以及此处定义的局部过滤器处理数据</pre>
-        <p>{{ person.name | capitalize | abc | edf }}</p>
-        <pre class="bg-pink-lightest rounded">// 此处声明为计算属性</pre>
-        <p>姓名长度为:{{ personNameLength }}</p>
-        <pre class="bg-pink-lightest rounded">// 此处使用自定义指令绑定数据，具体输出点击提交并按f12查看</pre>
-        <input class="w-24" type="button" value="提交" @click="handleSubmit" v-cool:test="person.name">
+        <div class="pl-4">
+          <label for="">姓名：</label>
+          <input id="name" type="text" v-model="person.name" v-focus autocomplete="off">
+          <span class="ml-8">年龄：{{ person.age }}</span>
+          <span class="ml-8">地址：{{ person.address }}</span>
+        </div>
+        <div class="pl-4">
+          <!-- 使用上文自定义的全局过滤器以及此处定义的局部过滤器处理数据 -->
+          <span>{{ person.name | capitalize | abc | edf }}</span>
+          <!-- 此处声明为计算属性 -->
+          <span class="ml-4">姓名长度为:{{ personNameLength }}</span>
+        </div>
+        <div class="mt-2 pl-4 ">
+          <!-- 此处使用自定义指令绑定数据，具体输出点击提交并按f12查看 -->
+          <input class="w-24" type="button" value="提交" @click="handleSubmit" v-cool:test="person.name">
+        </div>
       </div>
-      <div>
+      <div class="pl-4 mt-2">
         <!-- v-bind="person" 不是v-bind:person="person"的简写 前者传递的是一个对象，后者是对象的各个属性，
         .sync可以双向绑定prop，它是触发事件监听事件模式的简写-->
         <!-- https://cn.vuejs.org/v2/guide/components-props.html#%E5%8D%95%E5%90%91%E6%95%B0%E6%8D%AE%E6%B5%81 -->
