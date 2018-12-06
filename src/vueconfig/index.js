@@ -1,7 +1,9 @@
 import Vue from 'vue'
+import qs from 'qs'
 import { axios, api } from '../http'
 
 Vue.config.productionTip = false
+Vue.prototype.$qs = qs
 Vue.prototype.$http = axios
 Vue.prototype.$api = api
 

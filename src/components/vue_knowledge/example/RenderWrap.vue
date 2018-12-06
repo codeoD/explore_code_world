@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3 class="mt-4 mb-4">Render函数</h3>
-    <div>
+    <h3 class="mt-4 mb-4" id="render_function">Render函数</h3>
+    <div class="pl-4">
       <input type="button" value="点击切换显示" @click="showError=!showError">
       <render-example :showError="showError" :info="info"></render-example>
     </div>

@@ -1,23 +1,15 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <top-bar></top-bar>
-    <side-bar></side-bar>
-    <div class="main-content inline-block fixed bg-teal-lightest">
-      <router-view class="main-content-view"/>
-    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import TopBar from '@/components/TopBar'
-import SideBar from '@/components/SideBar'
+// import IndexPage from '@/components/Index'
+// import SignIndex from '@/components/sign_in/SignIndex'
 export default {
-  name: 'App',
-  components: {
-    TopBar,
-    SideBar
-  }
+  name: 'App'
 }
 </script>
 
@@ -33,28 +25,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
-.main-content {
-  width: calc(100vw - 12rem);
-  height: calc(100vh - 5rem);
-  overflow-y: auto;
-}
-.main-content-view {
-  position: relative;
-  padding: 1rem;
-}
-.main-content-view::before {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('./assets/img/magic_girl.jpg');
-  /* background-clip: padding-box; */
-  background-size: cover;
-  /* background-position: bottom; */
-  background-attachment: fixed;
-  z-index: -1;
-  filter: opacity(0.4);
-}
 </style>

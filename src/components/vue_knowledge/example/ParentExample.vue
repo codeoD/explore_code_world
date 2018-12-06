@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="mt-4 mb-4">组件相关</h3>
+    <h3 class="mt-4 mb-4" id="component_concern">组件相关</h3>
     <div class="mt-4">
       <div>
         <!-- <dir></dir> -->
