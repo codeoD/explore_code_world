@@ -38,8 +38,8 @@ export default {
 </script>
 <style lang="scss">
 .sign {
-  top: 36%;
-  right: 4%;
+  top: 0.75rem;
+  right: 0.5rem;
   font-size: 14px;
 }
 </style>

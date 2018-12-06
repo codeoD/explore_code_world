@@ -4,7 +4,7 @@
       Content Tree
     </div>
     <ul class="pl-12">
-      <li class="text-sm"><router-link to="vueknowledge" class="hover:no-underline font-bold">Vue Knowledge</router-link></li>
+      <li class="text-sm mt-2"><router-link to="vueknowledge" class="hover:no-underline font-bold">Vue Knowledge</router-link></li>
       <ul class="pl-4">
         <li class="text-xs mt-2"><a href="#global_config" class="hover:no-underline">全局配置</a></li>
         <li class="text-xs mt-2"><a href="#component_concern" class="hover:no-underline">组件相关</a></li>
@@ -20,6 +20,10 @@
         <li class="text-xs mt-2"><a href="">Render Engine</a></li>
         <li class="text-xs mt-2"><a href="">JS Engine</a></li>
         <li class="text-xs mt-2"><a href="">Render Mechanism</a></li>
+      </ul>
+      <li class="text-sm mt-2"><a href="" class="hover:no-underline font-bold">App Deploy</a></li>
+      <ul class="pl-4">
+        <li class="text-xs mt-2"><a href="">Tomcat Config</a></li>
       </ul>
       <li class="text-sm mt-2"><a href="" class="hover:no-underline font-bold">More</a></li>
       <ul class="pl-4">
