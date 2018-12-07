@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <top-bar v-bind="user"></top-bar>
     <side-bar></side-bar>
     <div class="main-content inline-block fixed bg-teal-lightest">
@@ -76,21 +76,18 @@ export default {
   overflow-y: auto;
 }
 .main-content-view {
-  position: relative;
   padding: 1rem;
 }
-.main-content-view::before {
-  position: absolute;
+.main-content::before {
+  position: fixed;
   content: '';
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-image: url('../assets/img/magic_girl.jpg');
   /* background-clip: padding-box; */
   background-size: cover;
   /* background-position: bottom; */
-  background-attachment: fixed;
+  // background-attachment: fixed;
   z-index: -1;
   filter: opacity(0.4);
 }

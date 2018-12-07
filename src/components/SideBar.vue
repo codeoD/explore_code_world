@@ -5,17 +5,17 @@
     </div>
     <ul class="pl-12">
       <li class="text-sm mt-2"><router-link to="vueknowledge" class="hover:no-underline font-bold">Vue Knowledge</router-link></li>
-      <ul class="pl-4">
+      <ul class="pl-4" @click="routeToSubItem($event, 'vueknowledge')">
         <li class="text-xs mt-2"><a href="#global_config" class="hover:no-underline">全局配置</a></li>
         <li class="text-xs mt-2"><a href="#component_concern" class="hover:no-underline">组件相关</a></li>
         <li class="text-xs mt-2"><a href="#render_function" class="hover:no-underline">Render函数</a></li>
-        <li class="text-xs mt-2"><a href="" class="hover:no-underline">test</a></li>
+        <li class="text-xs mt-2"><a href="#slot_component" class="hover:no-underline">Slot组件</a></li>
       </ul>
-      <li class="text-sm mt-2"><a href="" class="hover:no-underline font-bold">Interesting Thing</a></li>
+      <li class="text-sm mt-2"><router-link to="interesting" class="hover:no-underline font-bold">Interesting Thing</router-link></li>
       <ul class="pl-4">
         <li class="text-xs mt-2"><a href="">Oauth2</a></li>
       </ul>
-      <li class="text-sm mt-2"><a href="" class="hover:no-underline font-bold">Browser Concern</a></li>
+      <li class="text-sm mt-2"><router-link to="browser" class="hover:no-underline font-bold">Browser Concern</router-link></li>
       <ul class="pl-4">
         <li class="text-xs mt-2"><a href="">Render Engine</a></li>
         <li class="text-xs mt-2"><a href="">JS Engine</a></li>
@@ -34,7 +34,12 @@
 </template>
 <script>
 export default {
-  name: 'SideBar'
+  name: 'SideBar',
+  methods: {
+    routeToSubItem (e, str) {
+      this.$router.push({path: str})
+    }
+  }
 }
 </script>
 <style lang="scss">
