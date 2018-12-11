@@ -5,7 +5,10 @@
 </template>
 <script>
 export default {
-  name: 'FromNow'
+  name: 'FromNow',
+  mounted: function () {
+    console.log('--logined:', this.$store.state.logined)
+  }
 }
 </script>
 <style lang="scss">

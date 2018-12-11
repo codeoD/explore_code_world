@@ -4,11 +4,11 @@
     <div class="mt-4">
       <div>
         <!-- <dir></dir> -->
-        <!-- 使用v-model双向绑定数据，并使用上文自定义的全局指令聚焦输入框 -->
+        <!-- 使用v-model双向绑定数据，并使用上文自定义的全局指令v-focus聚焦输入框 -->
         <!-- 单纯就聚焦来说，也可以使用html内置特性 autofocus -->
         <div class="pl-4">
           <label for="">姓名：</label>
-          <input id="name" type="text" v-model="person.name" v-focus autocomplete="off">
+          <input id="name" type="text" v-model="person.name" autocomplete="off">
           <span class="ml-8">年龄：{{ person.age }}</span>
           <span class="ml-8">地址：{{ person.address }}</span>
         </div>
