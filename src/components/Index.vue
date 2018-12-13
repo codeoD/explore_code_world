@@ -1,9 +1,13 @@
 <template>
   <div class="">
     <top-bar v-bind="user"></top-bar>
-    <side-bar></side-bar>
-    <div class="main-content inline-block fixed bg-teal-lightest">
-      <router-view class="main-content-view"/>
+    <div class="sticky">
+      <!-- <div class="inline-block side-bar bg-teal-lightest overflow-y-auto">1</div>
+      <div class="inline-block bg-teal-lightest">2</div> -->
+      <side-bar  class="inline-block side-bar bg-teal-lightest overflow-y-auto"></side-bar>
+      <div id="parent" class="main-content inline-block">
+        <router-view class="main-content-view"/>
+      </div>
     </div>
   </div>
 </template>
@@ -73,14 +77,18 @@ export default {
 .main-content {
   width: calc(100vw - 12rem);
   height: calc(100vh - 5rem);
+  margin-left: -5px;
+  vertical-align: top;
   overflow-y: auto;
 }
 .main-content-view {
   padding: 1rem;
 }
 .main-content::before {
-  position: fixed;
+  position: absolute;
   content: '';
+  top: 0;
+  left: 12rem;
   width: 100%;
   height: 100%;
   background-image: url('../assets/img/magic_girl.jpg');

@@ -38,6 +38,19 @@ export default {
     console.log('Vue版本号:' + Vue.version)
     console.log('自定义选项：', this.$options.customOption)
     console.log('是否运行在服务器：', this.$isServer)
+    console.log(this.$el)
+    if (this.$route.hash) {
+      let str = this.$route.hash.replace('#', '')
+      let el = document.getElementById(str)
+      let {top, left } = el.getClientRects()[0]
+      console.log(top, left, el)
+      let parent = document.getElementById('parent')
+      parent.scrollTo({
+        top,
+        left,
+        behavior: 'smooth'
+      })
+    }
   }
 }
 </script>

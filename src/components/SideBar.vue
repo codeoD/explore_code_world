@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block side-bar bg-teal-lightest overflow-y-auto">
+  <div>
     <div class="text-center text-purple-dark font-medium">
       Content Tree
     </div>
