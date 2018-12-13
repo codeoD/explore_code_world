@@ -89,6 +89,7 @@ export default {
   /* background-position: bottom; */
   // background-attachment: fixed;
   z-index: -1;
-  filter: opacity(0.4);
+  // filter: opacity(0.4);
+  opacity: 0.4;
 }
 </style>
