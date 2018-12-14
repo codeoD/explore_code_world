@@ -77,17 +77,24 @@ const router = new Router({
   ]
 })
 
-// router.afterEach((to, from) => {
-//   if (to.hash) {
-//     let str = to.hash.replace('#', '')
-//     console.log(str)
-//     let el = document.getElementById(str)
-//     console.log(el)
-//     let { x: left, y: top } = el.getClientRects()[0]
-//     Vue.nextTick().then(context => {
-//       console.log(left, top, context)
-//     })
-//   }
-// })
+// 一种变通的方式处理官方的scrollBehavior行为异常问题
+router.afterEach((to, from) => {
+  if (to.hash) {
+    let str = to.hash.replace('#', '')
+    console.log(str)
+    Vue.nextTick().then(data => {
+      console.log(data)
+      let el = document.getElementById(str)
+      // let { x: left, y: top } = el.getClientRects()[0]
+      let parent = document.getElementById('parent')
+      let padding = 16
+      parent.scrollTo({
+        top: el.offsetTop - el.offsetHeight + padding,
+        left: el.offsetLeft,
+        behavior: 'smooth'
+      })
+    })
+  }
+})
 
 export default router
