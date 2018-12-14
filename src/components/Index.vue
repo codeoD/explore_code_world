@@ -5,8 +5,8 @@
       <!-- <div class="inline-block side-bar bg-teal-lightest overflow-y-auto">1</div>
       <div class="inline-block bg-teal-lightest">2</div> -->
       <side-bar  class="inline-block side-bar bg-teal-lightest overflow-y-auto"></side-bar>
-      <div id="parent" class="main-content inline-block">
-        <router-view class="main-content-view"/>
+      <div class="main-content inline-block">
+        <router-view id="scrollTarget" class="main-content-view"/>
       </div>
     </div>
   </div>

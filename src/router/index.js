@@ -59,13 +59,17 @@ const router = new Router({
     },
     {
       path: '/',
-      name: 'SignIn',
+      name: 'Sign',
       component: SignIndex,
       children: [
         {
           path: 'signin',
           name: 'SignIn',
-          component: SignIn
+          component: SignIn,
+          meta: {
+            public: true, // Allow access to even if not logged in
+            onlyWhenLoggedOut: true
+          }
         },
         {
           path: 'signup',
@@ -86,8 +90,9 @@ router.afterEach((to, from) => {
       console.log(data)
       let el = document.getElementById(str)
       // let { x: left, y: top } = el.getClientRects()[0]
-      let parent = document.getElementById('parent')
-      let padding = 16
+      let scrollTarget = document.getElementById('scrollTarget')
+      let parent = scrollTarget.parentElement
+      let padding = window.parseInt(window.getComputedStyle(scrollTarget).padding)
       parent.scrollTo({
         top: el.offsetTop - el.offsetHeight + padding,
         left: el.offsetLeft,
