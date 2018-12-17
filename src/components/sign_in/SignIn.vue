@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-teal">
+  <div>
     <div>
       <label for="">username</label>
       <input type="text">

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { TokenService } from '../services/storage.service'
 // import HelloWorld from '@/components/HelloWorld'
 import IndexPage from '@/components/Index'
 import FromNow from '@/components/FromNow'
@@ -48,7 +49,10 @@ const router = new Router({
         {
           path: 'interesting',
           name: 'InterestingThing',
-          component: InterestingThing
+          component: InterestingThing,
+          meta: {
+            private: true
+          }
         },
         {
           path: 'http',
@@ -67,7 +71,7 @@ const router = new Router({
           name: 'SignIn',
           component: SignIn,
           meta: {
-            public: true, // Allow access to even if not logged in
+            // public: true, // Allow access to even if not logged in
             onlyWhenLoggedOut: true
           }
         },
@@ -79,6 +83,26 @@ const router = new Router({
       ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  // const isPublic = to.matched.some(record => record.meta.public)
+  const isPrivate = to.matched.some(record => record.meta.private)
+  const onlyWhenLoggedOut = to.matched.some(record => record.meta.onlyWhenLoggedOut)
+  const loggedIn = !!TokenService.getToken()
+
+  if (isPrivate && !loggedIn) {
+    return next({
+      path: '/signin',
+      query: { redirect: to.fullPath }
+    })
+  }
+
+  if (loggedIn && onlyWhenLoggedOut) {
+    return next('/')
+  }
+
+  next()
 })
 
 // 一种变通的方式处理官方的scrollBehavior行为异常问题

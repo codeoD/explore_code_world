@@ -4,6 +4,14 @@ import Vue from './vueconfig'
 import App from './App'
 import router from './router'
 import store from './store'
+import ApiService from './services/api.service'
+import { TokenService } from './services/storage.service'
+
+ApiService.init('http://localhost:3000')
+
+if (TokenService.getToken()) {
+  ApiService.setHeader()
+}
 
 /* eslint-disable no-new */
 new Vue({
