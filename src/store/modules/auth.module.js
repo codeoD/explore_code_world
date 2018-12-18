@@ -28,6 +28,7 @@ const getters = {
 }
 
 const actions = {
+  // 使用了对象解构
   async login ({ commit }, { email, password }) {
     commit('loginRequest')
 

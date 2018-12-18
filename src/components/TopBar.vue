@@ -12,12 +12,13 @@
       <div v-else class="inline-block absolute sign">
         <span>{{ nickName }}</span>
         <img src="../assets/img/4.jpg" alt="user avatar" width="50px" height="50px">
-        <span class="cursor-pointer text-teal hover:text-teal-darkest">Sign Out</span>
+        <span class="cursor-pointer text-teal hover:text-teal-darkest" @click="handleLogout">Sign Out</span>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'TopBar',
   props: {
@@ -33,6 +34,14 @@ export default {
   },
   data () {
     return {}
+  },
+  methods: {
+    ...mapActions('authModule', [
+      'logout'
+    ]),
+    handleLogout () {
+      this.logout()
+    }
   }
 }
 </script>

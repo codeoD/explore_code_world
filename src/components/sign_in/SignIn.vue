@@ -2,14 +2,14 @@
   <div>
     <div>
       <label for="">username</label>
-      <input type="text">
+      <input type="text" v-model="email">
     </div>
     <div>
       <label for="">password</label>
-      <input type="password">
+      <input type="password" v-model="password">
     </div>
     <div>
-      <input type="button" value="SignIn">
+      <input type="button" value="SignIn" @click="handleSubmit">
     </div>
     <div>
       <a id="qq" @click="qqSignIn">sign in with QQ</a>
@@ -18,8 +18,22 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'SignIn',
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+    ...mapGetters('authModule', [
+      'authenticating',
+      'authenticationError',
+      'authenticationErrorCode'
+    ])
+  },
   methods: {
     // 实际情况中各公司提供的oauth2的认证参数不太一样，可以使用一些库处理或者在各个登录方式上分别处理
     qqSignIn (e) {
@@ -37,6 +51,18 @@ export default {
       }
       let targetHref = 'http://localhost:3000/oauth2/authorize?' + this.$qs.stringify(params)
       e.target.href = targetHref
+    },
+    ...mapActions('authModule', [
+      'login'
+    ]),
+    handleSubmit () {
+      if (this.email !== '' && this.password !== '') {
+        this.login({
+          email: this.email,
+          password: this.password
+        })
+        this.password = ''
+      }
     }
   }
 }

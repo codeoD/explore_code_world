@@ -1,3 +1,5 @@
+import qs from 'qs'
+import axios from 'axios'
 import ApiService from './api.service'
 import { TokenService } from './storage.service'
 
@@ -20,7 +22,7 @@ const UserService = {
   login: async function (email, password) {
     const requestData = {
       method: 'post',
-      url: '/o/token/',
+      url: '/login/token',
       data: {
         grant_type: 'password',
         username: email,
@@ -33,8 +35,12 @@ const UserService = {
     }
 
     try {
-      const response = await ApiService.customRequest(requestData)
-
+      // const response = await ApiService.customRequest(requestData)
+      axios.defaults.baseURL = 'http://localhost:3000'
+      // const response = await axios.post(requestData.url, qs.stringify(requestData.data))
+      console.log(requestData.url + '?', qs.stringify(requestData.data))
+      const response = await axios.get(requestData.url + '?' + qs.stringify(requestData.data))
+      console.log('response:' + response)
       TokenService.saveToken(response.data.access_token)
       TokenService.saveRefreshToken(response.data.refresh_token)
       ApiService.setHeader()
