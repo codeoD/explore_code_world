@@ -30,7 +30,8 @@ export default {
     for (let i = 0; i < snowflakeNum; i++) {
       let left = Math.floor(Math.random() * 100)
       snowEls[i].style.left = `${left}%`
-      snowEls[i].animateTime = 2 + Number.parseFloat(Math.random().toFixed(2)) * 5
+      snowEls[i].style.transform = `scale(${Math.random() + 1})`
+      snowEls[i].animateTime = 6 + Number.parseFloat(Math.random().toFixed(2)) * 6
       snowEls[i].everyTimePercent = (100 - 0) / snowEls[i].animateTime / 60
       console.log(snowEls[i].animateTime)
       snowEls[i].animateSnow = function (timestamp) {
@@ -44,7 +45,13 @@ export default {
         // if (progress < 5 * 1000) {
         //   requestAnimationFrame(animateSnow)
         // }
-        if (Number.parseFloat(snowEls[i].style.top) < 100) {
+        if (Number.parseFloat(snowEls[i].style.top) < 110) {
+          requestAnimationFrame(snowEls[i].animateSnow)
+        }  else {
+          snowEls[i].style.top = '0%'
+          snowEls[i].style.left = `${Math.floor(Math.random() * 100)}%`
+          snowEls[i].animateTime = 6 + Number.parseFloat(Math.random().toFixed(2)) * 6
+          snowEls[i].everyTimePercent = (100 - 0) / snowEls[i].animateTime / 60
           requestAnimationFrame(snowEls[i].animateSnow)
         }
       }
@@ -83,5 +90,6 @@ footer {
   background-image: url('../../assets/img/snowflake.png');
   z-index: 100;
   opacity: 0.7;
+  filter: brightness(200%) saturate(0%);
 }
 </style>
