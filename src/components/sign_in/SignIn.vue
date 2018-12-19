@@ -1,19 +1,40 @@
 <template>
   <div>
-    <div>
-      <label for="">username</label>
-      <input type="text" v-model="email">
+    <!-- <div>
+      <img src="../../assets/img/vue_developer_knowledge_map.png" alt="vue开发者知识图">
+    </div> -->
+    <div class="login-form">
+      <div class="field">
+      <label class="label" for="">Username</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-success" type="text" v-model="email" placeholder="input username">
+        <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+        <span class="icon is-small is-right"><i class="fas fa-check"></i></span>
+      </div>
+      <p class="help is-success">This username is available</p>
     </div>
-    <div>
-      <label for="">password</label>
-      <input type="password" v-model="password">
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-danger" type="password" placeholder="input password" v-model="password">
+        <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <p class="help is-danger">This email is invalid</p>
     </div>
-    <div>
-      <input type="button" value="SignIn" @click="handleSubmit">
+    <div class="field">
+      <div class="control">
+        <input class="is-link button" value="SignIn" @click="handleSubmit">
+      </div>
     </div>
     <div>
       <a id="qq" @click="qqSignIn">sign in with QQ</a>
       <a id="google" class="ml-4">sign in with google</a>
+    </div>
     </div>
   </div>
 </template>
@@ -23,7 +44,7 @@ export default {
   name: 'SignIn',
   data () {
     return {
-      email: '',
+      email: 'my@email.com',
       password: ''
     }
   },
@@ -67,3 +88,11 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.login-form {
+  // margin-left: 60%;
+  // margin-right: 10%;
+  margin: 0 36%;
+  padding: 1rem;
+}
+</style>

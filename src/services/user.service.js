@@ -38,9 +38,8 @@ const UserService = {
       // const response = await ApiService.customRequest(requestData)
       axios.defaults.baseURL = 'http://localhost:3000'
       // const response = await axios.post(requestData.url, qs.stringify(requestData.data))
-      console.log(requestData.url + '?', qs.stringify(requestData.data))
       const response = await axios.get(requestData.url + '?' + qs.stringify(requestData.data))
-      console.log('response:' + response)
+      // console.log('response:', response)
       TokenService.saveToken(response.data.access_token)
       TokenService.saveRefreshToken(response.data.refresh_token)
       ApiService.setHeader()

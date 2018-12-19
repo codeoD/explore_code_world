@@ -86,6 +86,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  // protected route: https://medium.com/@zitko/structuring-a-vue-project-authentication-87032e5bfe16
   // const isPublic = to.matched.some(record => record.meta.public)
   const isPrivate = to.matched.some(record => record.meta.private)
   const onlyWhenLoggedOut = to.matched.some(record => record.meta.onlyWhenLoggedOut)

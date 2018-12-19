@@ -6,7 +6,8 @@ const state = {
   authenticating: false,
   accessToken: TokenService.getToken(),
   authenticationErrorCode: 0,
-  authenticationError: ''
+  authenticationError: '',
+  refreshTokenPromise: null // Holds the promise of the refresh token
 }
 
 const getters = {
@@ -31,14 +32,13 @@ const actions = {
   // 使用了对象解构
   async login ({ commit }, { email, password }) {
     commit('loginRequest')
-
     try {
       const token = await UserService.login(email, password)
       commit('loginSuccess', token)
-
+      console.log(this)
       // Redirect the user to the page he first tried to visit or to the home view
       router.push(router.history.current.query.redirect || '/')
-
+      console.log(router)
       return true
     } catch (e) {
       if (e instanceof AuthenticationError) {
@@ -53,6 +53,30 @@ const actions = {
     UserService.logout()
     commit('logoutSuccess')
     router.push('/signin')
+  },
+
+  refreshToken ({ commit, state }) {
+    // If this is the first time the refreshToken has been called, make a request
+    // otherwise return the same promise to the caller
+    if (!state.refreshTokenPromise) {
+      const p = UserService.refreshToken()
+      commit('refreshTokenPromise', p)
+
+      // Wait for the UserService.refreshToken() to resolve. On success set the token and clear promise
+      // Clear the promise on error as well.
+      p.then(
+        response => {
+          commit('refreshTokenPromise', null)
+          commit('loginSuccess', response)
+        },
+        error => {
+          commit('refreshTokenPromise', null)
+          throw error
+        }
+      )
+    }
+
+    return state.refreshTokenPromise
   }
 }
 
@@ -76,6 +100,10 @@ const mutations = {
 
   logoutSuccess (state) {
     state.accessToken = ''
+  },
+
+  refreshTokenPromise (state, promise) {
+    state.refreshTokenPromise = promise
   }
 }
 
