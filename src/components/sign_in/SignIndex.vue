@@ -18,8 +18,8 @@
         </div>
         <div class="inline-block text-center footer-text">
           <span>Connect Me At</span>
-          <a href="https://github.com/codeoD?tab=repositories">
-          Github
+          <a href="https://github.com/codeoD?tab=repositories" target="_blank">
+          <img src="../../assets/img/github.png" alt="github icon" class="align-top w-5">
           </a>
         </div>
       </div>
@@ -43,6 +43,7 @@ export default {
   name: 'SignIndex',
   data () {
     return {
+      // emoji pc端Chrome显示出来不好看，故未使用
       snow: '\u2744'
     }
   },
@@ -112,13 +113,6 @@ footer {
   opacity: 0.7;
   filter: brightness(200%) saturate(0%);
 }
-/* 为避免滚动条产生，要添加以下样式 */
-html {
-  overflow: hidden;
-}
-// html::-webkit-scrollbar {
-//   display: none;
-// }
 .footer-text {
   width: 25rem;
 }

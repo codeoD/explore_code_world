@@ -2,7 +2,7 @@
   <div>
     <h3 class="mt-4 mb-4" id="global_config">全局配置</h3>
     <div>
-      <pre class="bg-transparent">
+      <pre class="bg-transparent p-0 -ml-6">
         <span>Vue.config.silent = <span class="text-purple-light">false</span></span>
         <span>Vue.config.optionMergeStrategies = <span class="text-red-light">function</span> (parent, child, vm) {}</span>
         <span>Vue.config.devtools = <span class="text-purple-light">true</span></span>

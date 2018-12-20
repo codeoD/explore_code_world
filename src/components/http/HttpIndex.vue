@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 id="#http" class="pb-4">Http</h2>
+    <h2 id="#http" class="pb-4">HTTP</h2>
     <div>
       <div>
         <h3 id="headers" class="mt-4 mb-4">Headers</h3>

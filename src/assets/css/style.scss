@@ -1,7 +1,15 @@
 @tailwind preflight;
 
 @tailwind components;
+
+html {
+  overflow: hidden;
+}
 body {
   overflow: hidden;
 }
+/* html::-webkit-scrollbar {
+  display: none;
+} */
+
 @tailwind utilities;

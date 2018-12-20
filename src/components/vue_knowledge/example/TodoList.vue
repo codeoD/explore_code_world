@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 id="slot_component" class="mt-4 mb-4">Slot组件</h3>
-    <ul>
+    <ul class="pl-4">
       <li v-for="todo in todoList" :key="todo.id">
         <slot :todo="todo">
           {{ todo.text }}

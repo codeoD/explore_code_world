@@ -28,7 +28,7 @@
     </div>
     <div class="field">
       <div class="control">
-        <input class="is-link button" value="SignIn" @click="handleSubmit">
+        <input class="is-link button w-full" value="SignIn" @click="handleSubmit">
       </div>
     </div>
     <div>

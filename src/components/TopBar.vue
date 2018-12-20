@@ -1,6 +1,6 @@
 <template>
   <div class="bg-teal-lighter">
-    <img src="../assets/img/yiliya.png" alt="yiliya img load faiture" class="w-32 ml-24">
+    <img src="../assets/img/yiliya.png" alt="yiliya img load faiture" class="w-32 ml-24 align-middle">
     <div class="relative inline-block w-4/5 text-left">
       <span class="text-2xl font-semibold ml-12">欢迎来到Code World</span>
       <span class="text-xs ml-10">这里将对vue和一些有趣的事情探索，一起来吧！</span>
