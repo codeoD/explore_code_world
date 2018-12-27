@@ -27,9 +27,13 @@
       </ul>
       <li class="text-sm mt-2"><router-link to="browser" class="hover:no-underline font-bold">Browser</router-link></li>
       <ul class="pl-4">
-        <li class="text-xs mt-2"><a href="" class="hover:no-underline">Render Engine</a></li>
-        <li class="text-xs mt-2"><a href="" class="hover:no-underline">JS Engine</a></li>
-        <li class="text-xs mt-2"><a href="" class="hover:no-underline">Render Mechanism</a></li>
+        <li class="text-xs mt-2">
+          <router-link to="browser#render_engine" class="hover:no-underline">Render Engine</router-link>
+        </li>
+        <li class="text-xs mt-2"><a href="/" class="hover:no-underline">JS Engine</a></li>
+        <li class="text-xs mt-2">
+          <router-link to="browser#render_mechanism" class="hover:no-underline">Render Mechanism</router-link>
+        </li>
       </ul>
       <li class="text-sm mt-2"><router-link to="http" class="hover:no-underline font-bold">HTTP</router-link></li>
       <ul class="pl-4">
