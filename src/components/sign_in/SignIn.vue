@@ -7,7 +7,7 @@
       <div class="field">
       <label class="label" for="">Username</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-success" type="text" v-model="email" placeholder="input username">
+        <input :class="{'input': true, 'is-success': validState, 'is-danger': !validState}" type="text" v-model="email" placeholder="input username" @blur="validInput">
         <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
         <span class="icon is-small is-right"><i class="fas fa-check"></i></span>
       </div>
@@ -16,7 +16,7 @@
     <div class="field">
       <label class="label">Password</label>
       <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="password" placeholder="input password" v-model="password">
+        <input class="input is-danger" type="password" placeholder="input password" v-model="password" @blur="validInput">
         <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
         </span>
@@ -45,7 +45,8 @@ export default {
   data () {
     return {
       email: 'my@email.com',
-      password: ''
+      password: '',
+      validState: true
     }
   },
   computed: {
@@ -83,6 +84,17 @@ export default {
           password: this.password
         })
         this.password = ''
+      }
+    },
+    validInput: function (e) {
+      console.log(e)
+      if (e.target.type === 'text') {
+        // 验证email
+        if(e.target.value.match(/[a-zA-Z0-9]+@[a-z]+\.com/)) {
+          this.validState = true
+        } else {
+          this.validState = false
+        }
       }
     }
   }
