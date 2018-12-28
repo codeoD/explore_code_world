@@ -3,7 +3,7 @@
     <h3 id="render_mechanism" class="mt-4">渲染机制</h3>
     <div>
       <div>
-        <img src="../../assets/img/render_process.png" alt="">
+        <img src="../../assets/img/render_process.png" alt="" class="h-64">
       </div>
       <ol class="ml-4">
         <li><span>HTML代码转化为DOM Tree</span></li>

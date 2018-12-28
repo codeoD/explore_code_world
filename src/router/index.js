@@ -107,63 +107,27 @@ router.beforeEach((to, from, next) => {
 })
 
 // 一种变通的方式处理官方的scrollBehavior行为异常问题
-// function handleScroll (to, from) {
-//   if (!fn) {
-//     console.log('you hou')
-//     const scrollTarget = document.getElementById('scrollTarget')
-//     const parent = scrollTarget.parentElement
-//     const padding = Number.parseInt(window.getComputedStyle(scrollTarget).padding)
-//     let fn = function (to, from) {
-//       if (to.hash) {
-//         let str = to.hash.replace('#', '')
-//         console.log('to.hash:', to.hash)
-//         Vue.nextTick().then(() => {
-//           let el = document.getElementById(str)
-//           parent.scrollTo({
-//             top: el.offsetTop - el.offsetHeight + padding,
-//             left: el.offsetLeft,
-//             behavior: 'smooth'
-//           })
-//         })
-//       } else {
-//         parent.scrollTo({
-//           top: 0,
-//           left: 0,
-//           behavior: 'smooth'
-//         })
-//       }
-//     }
-//     return fn
-//   } else {
-//     return fn
-//   }
-// }
-// router.afterEach((to, from) => {
-//   handleScroll(to, from)
-// })
 router.afterEach((to, from) => {
-  let scrollTarget = document.getElementById('scrollTarget')
-  let parent = scrollTarget.parentElement
-  let padding = Number.parseInt(window.getComputedStyle(scrollTarget).padding)
-  console.log('padding:', padding)
-  if (to.hash) {
-    let str = to.hash.replace('#', '')
-    console.log('to.hash:', to.hash)
-    Vue.nextTick().then(() => {
+  Vue.nextTick().then(() => {
+    const scrollTarget = document.getElementById('scrollTarget')
+    const parent = scrollTarget.parentElement
+    const padding = Number.parseInt(window.getComputedStyle(scrollTarget).padding)
+    if (to.hash) {
+      let str = to.hash.replace('#', '')
+      console.log('to.hash:', to.hash)
       let el = document.getElementById(str)
       parent.scrollTo({
         top: el.offsetTop - el.offsetHeight + padding,
         left: el.offsetLeft,
         behavior: 'smooth'
       })
-    })
-  } else {
-    parent.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
-  }
+    } else {
+      parent.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+  })
 })
-
 export default router
