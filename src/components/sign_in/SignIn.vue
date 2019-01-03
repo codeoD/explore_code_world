@@ -90,7 +90,7 @@ export default {
       console.log(e)
       if (e.target.type === 'text') {
         // 验证email
-        if(e.target.value.match(/[a-zA-Z0-9]+@[a-z]+\.com/)) {
+        if (e.target.value.match(/[a-zA-Z0-9]+@[a-z]+\.com/)) {
           this.validState = true
         } else {
           this.validState = false

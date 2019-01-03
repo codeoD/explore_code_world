@@ -91,7 +91,8 @@ export default {
   left: 12rem;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/img/magic_girl.jpg');
+  // background-image: url('../assets/img/magic_girl.jpg');
+  background-color: #f1f5f8;
   /* background-clip: padding-box; */
   background-size: cover;
   /* background-position: bottom; */
